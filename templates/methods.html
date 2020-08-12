@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>XMalaria: Methods and Discussion</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<script>
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="/contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
+    <a href="/methods_discussion" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Methods</a>
+    <a href="/example" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Upload Example</a>
+    <a href="/user_info" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Upload and Test your image(s)!</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="/contact" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+    <a href="/methods_discussion" class="w3-bar-item w3-button w3-padding-large">Methods</a>
+    <a href="/example" class="w3-bar-item w3-button w3-padding-large">Upload Example</a>
+    <a href="/user_info" class="w3-bar-item w3-button w3-padding-large">Upload and Test your image(s)!</a>
+  </div>
+</div>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+
+    <div>
+      <h1>Literature Review of Deep Learning for Malaria Parasite Diagnosis</h1>
+      <p class="w3-text-grey">
+	    The use of deep neural networks for malaria parasite detection was first published in 2017 by four research groups. In the study by Liang et al. 2017[1], a custom-made 17-layer convolutional neural network (CNN) model was used for malaria classification from blood smear images and classification results were compared with pre-trained AlexNet, based on the CIFAR-100 data set for transfer learning. The custom CNN model outperformed the pre-trained AlexNet, with better accuracy (97.37% vs. 91.99%), sensitivity (96.99% vs. 89.99%) and specificity (97.75% vs 94.98%, respectively). The P. falciparum-infected malaria and control datasets contained 27,578 erythrocyte images where the ratio of infected cells to uninfected cells is 1:1, obtained from Chittagong Medical College Hospital, Bangladesh. This dataset was later used in the studies by Rajaraman et al. 2018 [2] and Rajaraman et al. 2019 [3]. It is also used in this study.
+<br><br>In the study by Dong et al. 2017[4][5], three well-known CNN models, including LeNet-5, AlexNet and GoogLeNet were used to learn the inherent features of the malaria infected cells and the non-infected cells. For comparison, a support vector machine (SVM) was trained on pre-selected features extracted from the same dataset. As expected, the CNN models outperformed the SVM model. The image data contained 1,034 infected cells and 1,531 non-infected cells, were labeled by a group of pathologists from the Medical School of the University of Alabama at Birmingham.
+<br><br>In the study by Hung et al. 2017[6], a two-stage approach was adopted, first, object detection framework Faster R-CNN identifies bounding boxes around objects and classifies them as RBC or other (including infected cells and leukocytes), then the AlexNet was used to classify the cells. The data were obtained from P. vivax infected patients in Brazil. Later, in a paper published in 2019, they included a much larger dataset of 100,000 cells.
+<br><br>In the study by Bibin et al 2017 [7], Deep Belief Networks were used for malaria parasite detection from smear Images. DBNs are graphical models which learn to extract a deep hierarchical representation of the training data. It should be noted that DBNs are not CNNs. Nonetheless, the numbers of parasites and non-parasite objects used in this research were 669 and 3431, respectively. The DBN models were compared with conventional machine learning techniques such as SVM, and superior performance of specificity of 95.92% and sensitivity of 97.60 were achieved.
+<br><br>In 2018, Gopakumar et al. 2018 [8] studied P. falciparum malaria detection using a custom-built slide scanner to collect Field of View (FoVs) of suspected infection sites, instead of examining the whole images. They used 765 FoVs containing 62 015 cells of which 1191 cells are infected. Three classifiers were compared: SVM classifier on hand‐engineered features, a CNN classifier operating only on the best focused patch and a CNN classifier operating on the focus stack of patches, and have found that the CNN working on the focus stack gave the best performance, i.e., sensitivity of 97.06% and specificity of 98.50%.
+<br><br>Rajaraman et al. 2018 [2] utilized the dataset from Liang et al. 20171, and applied transfer learning using pre-trained CNNs (e.g. ResNet-50), and obtained excellent results for cell image classification in terms of accuracy, sensitivity and specificity.
+<br><br>However, the performance of deep neural networks is sensitive to small fluctuations in the training set, resulting in modeling the random noise from the training data and leading to overfitting. Rajaraman et al. 2019 [3] proposed to use ensemble learning strategies to train multiple, diverse models and combine their predictions. Their results indicated that the ensemble model outperformed the state-of-the-art in several performance metrics toward classifying the parasitized and uninfected cells to aid in improved disease screening. Although with excellence model results, Rajaraman et al. [3] did not introduce additional noise to the original image datasets. Adversarial attacks [9] are input perturbations generated by computer algorithms, which look like noises added to images. It is well known that current CNNs are vulnerable to adversarial attacks. Adversarial attacks can cause many state-of-art CNNs to make wrong classification and segmentation of medical images [10, 11].
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div>
+      <h1>Object Detection Algorithm: YOLOv3</h1>
+      <p class="w3-text-grey">
+        Object detection is one of the most common tasks in computer vision, in which an algorithm attempts to predict the location (through four bounding box coordinates) and class of one or more objects in an image.
+        In recent years, the advent of novel deep learning algorithms has stimulated research in the object detection field and has yielded state-of-the-art results on many image benchmarks.
+        <br><br>
+        You only look once (YOLO) is a state-of-the-art, real-time object detection algorithm [12] developed by Redman et al. Other commonly-used object detection algorithms such as those of the RCNN family [13,14,15]
+        combine the use of classifiers and region proposal methods to perform object detection. Such algorithms attempt to find an object in a given image at various window sizes and aspect ratios.
+        High scoring regions of the image are considered detections.
+        <br><br>
+        In contrast, YOLOv3 (later called Darknet based on VGG) applies a <b>single</b> neural network to the full image. This network first divides the input image into a grid of regions and predicts bounding boxes
+        and probabilities for objects in each region. These bounding boxes are weighted by the predicted probabilities, and non-maximum suppression is used to get rid of boxes without high scores
+        (to prevent multiple detections of the same objects).
+        <br><br>
+        The YOLOv3 model used in this study had a architechture similiar to VGG [16] and was trained on the BCCD dataset for blood cell detection [17]. The dataset contains 410 Giemsa-stained thin blood smear images and approximately 5200
+        labelled cell components (RBCs, WBCs, and platelets). The model was able to achieve a mAP of 84% after training.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Third Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+
+    <div>
+      <h1>Classification Algorithm</h1>
+
+      <p class="w3-text-grey">In this study, the public dataset provided by Rajaraman, et al. 2018 of the NIH was utilized [2]. The dataset consisted of Giemsa-stained thin blood smear slides from 150 de-identified
+      <em>P. falciparum</em>-infected and 50 de-identified healthy patients. In total, there were 27,558 cell images with equal numbers of parasitized and uninfected cells. To evaluate the base and new models,
+      the images were split randomly into a training set and a testing set at the patient level. The training set contains infected and uninfected images from 160 patients; the testing set contains the remaining images.
+      The images were re-sampled to 128 × 128 x 3 pixel resolution to suit the input requirements of the base and new CNNs. Pixel values were normalized in the range of 0 to 1 to assist in faster convergence.
+      Data argumentation using random image rotation was applied to increase the amount of training data, reducing the potential of overfitting.
+      <br><br>
+      <!-- maybe dont include
+      The model used for image classification was a convolutional neural network. The input to the classification model constitutes a single cell image of 100×100×3 pixel resolution, as there are 3 color channels.
+      The convolutional layers use 3 × 3 filters, have a stride of 1 pixel, have a rectified linear units (ReLU) activation function, and the weights incident to each hidden unit to have a norm less than or equal to 3
+      (i.e. maxnorm(3)). Same padding is also applied to the convolutional layers. The first convolutional layer has 64 filters, followed by a 20% dropout layer to reduce overfitting. The second convolutional layer has
+      32 filters. Max-pooling layers with a pooling window of 2 × 2 and 2 pixel strides follow the convolutional layers for summarizing the outputs of neighboring neuronal groups in the feature maps. The feature maps
+      then pass through two fully connected layers into the Softmax classifier, which is equivalent to a sigmoid function for binary classification. Dropout regularization with a dropout ratio of 0.5 and 0.2 is applied
+      to outputs of the first and second fully connected layers, respectively.
+      The Adamax optimizer with default parameters is used to find the optimal weights and biases of the function. After training for 100 epochs with a batch size of 64 images, the model achieves an accuracy of roughly 94%.
+      -->
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Fourth Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div>
+      <h1>Issues</h1>
+      <p class="w3-text-grey">
+      The model cannot reliably predict for other less common strains of malaria, including classification of <em>P. malariae, P. vivax, P. ovale, and P. knowlesi.</em>, as these strains were not included in the image dataset.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Fifth Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+
+    <div>
+      <h1>References</h1>
+      <p class="w3-text-grey">
+          [1] Liang Z, Powell A, Ersoy I, Poostchi M, Silamut K, Palaniappan K, Guo P, Hossain MA, Sameer A, Maude RJ, Huang JX, Jaeger S, Thoma G: CNN-based image analysis for malaria diagnosis. Proceedings - 2016 IEEE International Conference on Bioinformatics and Biomedicine, BIBM 2016, 2017. pp. 493-6.<br>
+            [2] Rajaraman S, Antani SK, Poostchi M, Silamut K, Hossain MA, Maude RJ, Jaeger S, Thoma GR: Pre-trained convolutional neural networks as feature extractors toward improved malaria parasite detection in thin blood smear images. PeerJ 2018, 6:e4568.<br>
+        [3] Rajaraman S, Jaeger S, Antani SK: Performance evaluation of deep neural ensembles toward malaria parasite detection in thin-blood smear images. PeerJ 2019, 7:e6977.<br>
+        [4] Dong Y, Jiang Z, Shen H, David Pan W, Williams LA, Reddy VVB, Benjamin WH, Bryan AW: Evaluations of deep convolutional neural networks for automatic identification of malaria infected cells. 2017 IEEE EMBS International Conference on Biomedical and Health Informatics, BHI 2017, 2017. pp. 101-4.<br>
+        [5] Dong Y, Jiang Z, Shen H, Pan WD: Classification accuracies of malaria infected cells using deep convolutional neural networks based on decompressed images. Conference Proceedings - IEEE SOUTHEASTCON, 2017.<br>
+        [6] Hung J, Goodman, A, lopes, S, G, R, D, R, F, C, Duraisingh, MT, AE, C: Applying Faster R-CNN for Object Detection on Malaria Images. 2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2017.<br>
+        [7] Bibin D, Nair MS, Punitha P: Malaria Parasite Detection from Peripheral Blood Smear Images Using Deep Belief Networks. IEEE Access 2017, 5:9099-108.<br>
+        [8] Gopakumar GP, Swetha M, Sai Siva G, Sai Subrahmanyam GRK: Convolutional neural network-based malaria diagnosis from focus stack of blood smear images acquired using custom-built slide scanner. Journal of Biophotonics 2018, 11.<br>
+        [9] Akhtar N, Mian A: Threat of Adversarial Attacks on Deep Learning in Computer Vision: A Survey. IEEE Access 2018, 6:14410-30.<br>
+        [10] Finlayson SG, Chung HW, Kohane IS, Beam AL: Adversarial Attacks Against Medical Deep Learning Systems. arXiv:180405296 2018.<br>
+        [11] Paschali M, Conjeti S, Navarro F, Navab N: Generalizability vs. Robustness: Investigating Medical Imaging Networks Using Adversarial Examples.  2018:493-501.<br>
+	    [12] You Only Look Once: Unified, Real-Time Object Detection; arXiv:1506.02640<br>
+	    [13] Rich feature hierarchies for accurate object detection and semantic segmentation; arXiv:1311.2524<br>
+	    [14] Fast R-CNN; arXiv:1504.08083<br>
+	    [15] Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks; arXiv:1506.01497<br>
+	    [16] Very Deep Convolutional Networks for Large-Scale Image Recognition; arXiv:1409.1556<br>
+	    [17] BCCD Dataset: https://github.com/Shenggan/BCCD_Dataset<br>
+	   </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

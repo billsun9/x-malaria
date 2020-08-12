@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>XMalaria: File Upload</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+
+</style>
+
+<script>
+   function BufferGif() {
+       document.getElementById('demo').style.display='block'
+   }
+   function clock(c) {
+     var myTimer = setInterval(myClock, 1000);
+     var count = 30 + c*12
+     function myClock() {
+       document.getElementById("countdown").innerHTML = "Estimated number of seconds left: "+--count;
+       if (count == 0) {
+         clearInterval(myTimer);
+         alert("As the image(s) you uploaded likely contain many cells, the model predictions may take a little bit longer!");
+       }
+     }
+   }
+    function FileDetails() {
+
+        // GET THE FILE INPUT.
+        var fi = document.getElementById('file');
+
+        // VALIDATE OR CHECK IF ANY FILE IS SELECTED.
+        if (fi.files.length > 0) {
+
+            // THE TOTAL FILE COUNT.
+            document.getElementById('fp').innerHTML =
+                'Total Files: <b>' + fi.files.length + '</b></br >';
+
+            // RUN A LOOP TO CHECK EACH SELECTED FILE.
+            for (var i = 0; i <= fi.files.length - 1; i++) {
+
+                var fname = fi.files.item(i).name;      // THE NAME OF THE FILE.
+                var fsize = fi.files.item(i).size;      // THE SIZE OF THE FILE.
+
+                // SHOW THE EXTRACTED DETAILS OF THE FILE.
+                document.getElementById('fp').innerHTML =
+                    document.getElementById('fp').innerHTML + '<br /> ' +
+                        fname + ' (<b>' + fsize + '</b> bytes)';
+            }
+        }
+        else {
+            alert('Please select a file.')
+        }
+        clock(fi.files.length)
+    }
+
+    var _validFileExtensions = [".jpg", ".jpeg", ".gif"];
+    function Validate(oForm) {
+        var arrInputs = oForm.getElementsByTagName("input");
+        for (var i = 0; i < arrInputs.length; i++) {
+            var oInput = arrInputs[i];
+            if (oInput.type == "file") {
+                var sFileName = oInput.value;
+                if (sFileName.length > 0) {
+                    var blnValid = false;
+                    for (var j = 0; j < _validFileExtensions.length; j++) {
+                        var sCurExtension = _validFileExtensions[j];
+                        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                            blnValid = true;
+                            break;
+                    }
+                }
+
+                if (!blnValid) {
+                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    return false;
+                }
+            }
+        }
+    }
+    FileDetails();
+    BufferGif();
+    return true;
+}
+
+</script>
+
+<body>
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <header class="w3-container w3-red w3-center" style="padding:16px 16px">
+    <h1 class="w3-margin w3-jumbo">XMalaria: Automated Malaria Parasite Diagnosis</h1>
+    <p class="w3-xlarge">This web application provides an AI (Machine Learning)-based method for detecting Malaria-infected red blood cells
+     from a giemsa-stained thin blood smear image</p>
+  </header>
+  <h2>Select file(s) to upload</h2>
+  <p>File must have one of the following extensions: 'jpg', 'jpeg', 'gif'</p>
+  <br>
+  <p><b>Important:</b> upload multiple slide images by holding "CTRL"</p>
+  <p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+  </p>
+  <form method="post" action="/result" enctype="multipart/form-data" onsubmit="return Validate(this);">
+    <dl>
+		<p>
+			<input id="file" type="file" name="files[]" multiple="true" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit">
+		<br>
+		<p id="fp"></p>
+		<br>
+		<p id="countdown"><p>
+		<br>
+		<img id="demo" src="static/website_pics/buffer.gif" alt="buffering_symbol" style="display:none" height="5%" width="5%">
+	</p>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>XMalaria</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+img {
+  max-width: 100%;
+  height: auto;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="/contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
+    <a href="/methods_discussion" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Methods</a>
+    <a href="/example" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Upload Example</a>
+    <a href="/user_info" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Upload and Test your image(s)!</a>
+
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="/contact" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+    <a href="/methods_discussion" class="w3-bar-item w3-button w3-padding-large">Methods</a>
+    <a href="/example" class="w3-bar-item w3-button w3-padding-large">Upload Example</a>
+    <a href="/user_info" class="w3-bar-item w3-button w3-padding-large">Upload and Test your image(s)!</a>
+
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">XMalaria: Automated Malaria Parasite Diagnosis</h1>
+  <p class="w3-xlarge">This web application provides an AI (or Machine Learning)-based method of detecting malaria-infected red blood cells
+     from giemsa-stained thin blood smear images</p>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Malaria Parasite Information</h1>
+      <p class="w3-text-grey">Malaria is a life-threatening mosquito-borne disease of global importance. After almost two decades of decline,
+      malaria cases have significantly risen in 13 countries, according to the World Health Organization's 2018 World Malaria Report [1].
+      In 2017, there were 219 million malaria cases, compared with the 217 million in 2016. The related deaths in 2017 were estimated to be 435,000,
+      prompting concern that more effective methods are needed to combat the epidemic. [1]
+      <br><br>
+      Malaria is caused by a protozoan parasite in the <em>Plasmodium</em> genus, the most lethal of which is <i>P. falciparum</i>. The most common biological vector for the parasite
+      is the female <i>Anopheles</i> mosquito. As malaria parasites infect the red blood cells (RBCs), through blood transfusions, organ transplants, or contaminated needles,
+      the disease can be spread from person to person. Thus, the prompt detection of malaria is essential for a patient to receive timely treatment and for preventive measures
+      to be implemented to stop further spread of infection from mosquitoes or other means.
+      <br><br>
+      Two commonly used mechanisms of detecting malaria include rapid diagnostic tests (RDTs), in which test kits are able to detect the presence of malarial antigens, and analysis of “blood smears,”
+      where a drop of a patient’s blood is spread out on a microscope slide, stained by some reagents (primarily wright-giemsa stain), and examined by a trained laboratorian [2]. This latter technique of
+      microscopic diagnosis remains the gold standard for laboratory confirmation of malaria. Besides being extremely time-consuming and labor intensive, the results of such testing depend on the quality
+      of the staining reagents, the resolution and magnification of the microscope, and the experience of the laboratorian, all of which can be lacking in tropical and sub-tropical regions where malaria is
+      the most prevalent. Machine learning, a powerful statistical tool, may provide a paradigm-changing solution to this bottleneck.
+      <br><br>
+      The image to the right shows an example of an appropriate thin blood smear image. Ideally, the image that the user uploads does not have too many overlapping cells or many cells along the edge of the image.
+      <br><br>
+      [1] World Health Organization: World Malaria Report 2018. Edited by WHO. Geneva: WHO, 2018.
+      [2] Eberhard ML, Lammie PJ. Laboratory diagnosis of filariasis. Clin Lab Med 1991;11:4.
+      </p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <img src="/static/website_pics/parasites.jpg" class="w3-padding-64 w3-text-red w3-center" alt="Figure 1: Thin blood smear example" title="Figure 1: Thin blood smear example"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <img src="/static/website_pics/ai.jpg" class="w3-padding-64 w3-text-red" alt="ai"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>Powerful Deep Learning Framework</h1>
+
+      <p class="w3-text-grey">Machine Learning is a very powerful statistical tool in which computer algorithms "learn" how to accomplish certain tasks without being explicitly programmed.
+      In supervised learning, machine learning models iteratively improve their performance by training on a labeled training dataset.
+      If trained successfully on a sufficiently large dataset, the machine learning models should be able to accurately predict on new instances outside of the original training dataset.
+      <br><br>
+      Deep learning is a subset of machine learning that utilizes deep neural networks (DNNs). Deep learning algorithms have found wide applicability in a myriad of fields,
+      including in computer vision. This website employs two separate deep learning algorithms: an object detection model and a classification model. A entire giemsa-stained thin blood smear image is
+      taken as input, and the YOLOv3 algorithm predicts out the bounding boxes for three possible types of objects in the image (red blood cell, white blood cell, and platelet). The classification model
+      is a standard convolutional neural network and predicts if the red blood cells are infected or uninfected by the malaria parasite. The user is provided with zip files containing all segmented cells,
+      predictions for bounding boxes on the entire slide image, and a data report.
+      <br><br>
+      Please see Methods section for details</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Future Work</h1>
+
+      <p class="w3-text-grey">The classification model used in this study was trained on an NIH image dataset of 27,558 cell images with equal instances of cells infected by the <em>P. falciparum</em> parasite and those which were not [1].
+      Although  <em>P. falciparum</em> is the most common type of malaria and is the most lethal, it is important to note that the classification model is unable to accurately predict for other less common strains of malaria, including classification of
+      <em>P. malariae, P. vivax, P. ovale, and P. knowlesi.</em> In the future, new cell image datasets and model structures will be tested to further improve the predictive power.
+      <br><br>
+      Similarly, the object detection model (YOLOv3) was trained on the BCCD dataset [2], which contains 410 labeled Giemsa-stained blood smear images. This dataset is also rather small, and model performance could be improved
+      by finding and incorporating new images.
+      <br><br>
+      The images to the right show an example of a thin blood smear image from the BCCD Dataset (top) and the YOLOv3 model's prediction of bounding box coordinates and object classes on it (bottom)
+      <br><br>
+      [1] Rajaraman S, Antani SK, Poostchi M, Silamut K, Hossain MA, Maude RJ, Jaeger S, Thoma GR: Pre-trained convolutional neural networks as feature extractors toward improved malaria parasite detection in thin blood smear images. PeerJ 2018, 6:e4568.
+      <br>
+      [2] BCCD Dataset: https://github.com/Shenggan/BCCD_Dataset
+      </p>
+    </div>
+    <div class="w3-third">
+      <img src="/static/website_pics/BloodImage.jpg" width="275" height="275" class="w3-text-red" title="Figure 2: Thin blood smear image from the BCCD dataset"></i>
+    </div>
+    <div class="w3-third">
+      <img src="/static/website_pics/BloodImage_00001.jpg" width="310" height="310" class="w3-text-red" title="Figure 3: Example of a detected smear image"></i>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-16">
+    <h1 class="w3-margin w3-xlarge">Please let me know of any suggestions or comments!</h1>
+    <p>***Disclaimer: As this was a personal research project that was developed with a limited dataset and <b>extremly</b> limited computing power, use the models and their predictions at your own risk. The outputs of
+    the models are predictions rather than true analyses by experienced clinicians. Whether or not the detected cells are accurate and if the cells are infected is not guaranteed.
+    This project was merely meant to supplement the workload of clinicians for blood smear analysis, rather than replace it. <br>By using this web application, you also consent to having the images that
+    you upload used for other research purposes.***</p>
+</div>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>

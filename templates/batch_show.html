@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>XMalaria: Prediction</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.info {
+      margin: .5% 33%;
+      border-bottom: 4px solid #2929a3;
+      padding: .5% 1%;
+      font-size: 18px;
+      background-color: #66c2ff;
+    }
+</style>
+<body>
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <header class="w3-container w3-red w3-center" style="padding:16px 16px">
+<body>
+    <h1>Predictions from the models:</h1>
+    <p>{{ message }}</p>
+    <p>{{ time_message }}</p>
+    {% for path in paths %}
+      <img src="{{ path }}" alt="User Image" height="350" width="350">
+    {% endfor %}
+
+    <div class="info" style="background-color: #66c2ff;">
+      <a href="/upload_a_file">Upload more files for testing?</a>
+    </div>
+    <div class="info" style="background-color: #66c2ff;">
+      <a href="/">Return Home</a>
+    </div>
+    <br>
+    <div class="info">
+      <a href="static/download/infected_rbcs.zip" download>Download Infected RBCs!</a>
+    </div>
+    <div class="info">
+      <a href="static/download/uninfected_rbcs.zip" download>Download UnInfected RBCs!</a>
+    </div>
+    <div class="info">
+      <a href="static/download/wbcs.zip" download>Download WBCs!</a>
+    </div>
+    <div class="info">
+      <a href="static/download/platelets.zip" download>Download Platelets!</a>
+    </div>
+</div>
+</body>
+</html>
